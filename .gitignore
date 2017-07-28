@@ -1,0 +1,14 @@
+**/*.pyc
+**/*~
+**/*.json
+
+__pycache__
+
+Android
+admin_info.txt
+pandas
+
+py-roamer/env/
+py-roamer/lib/
+py-roamer/static/
+py-roamer/cloud_sql_proxy

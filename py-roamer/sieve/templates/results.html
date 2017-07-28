@@ -1,0 +1,19 @@
+<header>
+<h1> Search Results
+</header>
+
+
+{% if search_results %}
+    <ol>
+    {% for species, match_pct in search_results %}
+        <li> <a href="{% url 'detail' species.id %}"> <i> {{ species.scientific_name }} </i> </a>:
+                {{match_pct}} % </li>
+    {% endfor %}
+    </ol>
+
+{% else %}
+    <p> You must choose character observations for the search to work </p>
+{% endif %}
+
+
+<p><a href="{% url 'query' %}"> Return to search </a></p>

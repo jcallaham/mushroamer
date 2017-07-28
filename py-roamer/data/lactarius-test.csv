@@ -1,0 +1,6 @@
+Species,Cap color,Cap texture,Cap edge,Gill color,Latex color,Latex color change,Flesh color,Flesh changes color,Zonal cap,Taste,Odor,Stipe color,Stipe texture,Spore color
+Species A,brown,wrinkled,scalloped,white,white,no,white,no,no,bitter,no,brown,smooth,white
+Species B,orange,smooth,smooth,white,white,no,yellow,orange,no,hot,no,white,smooth,brown
+Species C,orange,scaly,smooth,yellow,orange,purple,orange,blue,yes,no,no,white,scrobiculate,white
+Species D,white,viscid,lined,tan,clear,no,white,no,no,sweet,fruity,white,scrobiculate,pink
+Species E,gray,smooth,smooth,yellow,yellow,no,yellow,no,yes,hot,sharp,yellow,fibrous,brown
