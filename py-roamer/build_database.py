@@ -7,7 +7,7 @@ Note: If the old database isn't cleared first, this could
 import django
 django.setup()  # Needs to be done before importing Species model
 
-from encyclopedia.models import Species
+from sieve.models import Species
 
 
 def create_database():
@@ -25,7 +25,6 @@ def create_database():
         species = Species()  # Create object
 
         # Save csv data for this species
-        print(len(row))
         print(row[0])
         species.scientific_name = row[0]
         species.cap_color = row[1]

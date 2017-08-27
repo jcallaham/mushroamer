@@ -1,5 +1,5 @@
 # Functions to help views.py relate to the lactarius database
-from encyclopedia.models import Species
+from .models import Species
 
 
 def get_choices():

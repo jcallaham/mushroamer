@@ -1,13 +1,28 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse
+from django.urls import reverse
+from django.views import generic
 from sieve.forms import QueryForm
 from django.views.generic.edit import FormView
 import sieve_functions as sf
-from encyclopedia.models import Species
+from .models import Species
 
+class IndexView(generic.ListView):
+    template_name = 'encyclopedia/index.html'
+    context_object_name = 'species_list'
+
+    def get_queryset(self):
+        """Returns a list of all species. Used to populate encyclopedia index.
+            (I think this is an override) """
+        return Species.objects.order_by('scientific_name')
+
+
+class DetailView(generic.DetailView):
+    model = Species
+    template_name = 'encyclopedia/detail.html'
 
 
 def query(request):
@@ -24,10 +39,10 @@ def query(request):
         search_results = sf.search(field_dict, request.POST)   # Two-ples of (species, pct_match), sorted descending
 
         # Show best 5 matches
-        return render(request, 'results.html', {'search_results':search_results[:5]} )
+        return render(request, 'sieve/results.html', {'search_results':search_results[:5]} )
 
     else:
         """ Form has not been completed: generate a new form """
         form = QueryForm(field_dict)
-        return render(request, 'query.html', {'form': form})
+        return render(request, 'sieve/query.html', {'form': form})
 
